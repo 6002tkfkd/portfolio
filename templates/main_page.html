@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/main_page.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/main_page.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
@@ -21,13 +21,13 @@
             </nav>
         </header>
 
-        <img id = "HOME" src="../image/1.jpeg" height="1300">
+        <img id = "HOME" src="static/image/1.jpeg" height="1300">
 
         <div class="about_me_section">
             <div id="about_me_print">About Me</div>
             <div class="about_me_content_wrapper">
                 <div class="image_container">
-                    <img id="ABOUT_ME" src="../image/2.jpg" height="600" width="700">
+                    <img id="ABOUT_ME" src="static/image/2.jpg" height="600" width="700">
                 </div>
                 <div class="text_container">
                     <div id="about_me_content">이름: 한사랑<br>나이: 26세<br>학력: 조선대학교 정보통신공학과</div>   
