@@ -1,0 +1,193 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static 'reset.css' %}">
+    <link rel="stylesheet" href="{% static 'main_page.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+        <header>
+            <nav>
+              <ul class="list">
+                <li><a href="#HOME">HOME</a></li>
+                <li><a href="#ABOUT_ME">ABOUT ME</a></li>
+                <li><a href="#SKILLS">SKILLS</a></li>
+                <li><a href="#PROJECT">PROJECT</a></li>
+                <li><a href="#CONTACT">CONTACT</a></li>
+                <li><a href="#CHAT_BOT">CHAT BOT</a></li>
+              </ul>
+            </nav>
+        </header>
+
+        <img id = "HOME" src="static/image/1.jpeg" height="1300">
+
+        <div class="about_me_section">
+            <div id="about_me_print">About Me</div>
+            <div class="about_me_content_wrapper">
+                <div class="image_container">
+                    <img id="ABOUT_ME" src="static/image/2.jpg" height="600" width="700">
+                </div>
+                <div class="text_container">
+                    <div id="about_me_content">이름: 한사랑<br>나이: 26세<br>학력: 조선대학교 정보통신공학과</div>   
+                </div>
+            </div>
+        </div>
+
+        <div class="skills_section" id="SKILLS">
+            <div id="skills_print">Skills</div>
+            <div class="experienced_it_container">
+                <div class="content_wrapper">
+                    <div id="skills_content">I EXPERIENCED IT</div>
+                    <div class="icon_container">
+                        <div class="python-icon">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="langchain-icon">
+                            <i class="fas fa-link"></i>
+                            <span>LangChain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project_section" id="PROJECT">
+            <div id="project_print">Project</div>
+            <div class="project_container">
+                <div class="content_wrapper">
+                    <div id="project_content">MY PROJECT</div>
+                    <div class="project_items">
+                        <!-- 프로젝트 아이템들은 나중에 추가될 수 있도록 공간 확보 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact_section" id="CONTACT">
+            <div id="contact_print">Contact</div>
+            <div class="contact_container">
+                <div class="content_wrapper">
+                    <div id="contact_content">CONTACT ME</div>
+                    <div class="contact_items">
+                        <div class="contact_item">
+                            <i class="fas fa-phone"></i>
+                            <span>010-9999-9999</span>
+                        </div>
+                        <div class="contact_item github">
+                            <a href="https://github.com/6002tkfkd" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatbot_section" id="CHAT_BOT">
+            <div id="chatbot_print">Chat Bot</div>
+            <div class="chatbot_container">
+                <div class="content_wrapper">
+                    <div class="chatbot_items">
+                        <div class="chatbot_icon" onclick="toggleChatbox()">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="chatbox" id="chatbox">
+                            <div class="chatbox-header">
+                                <span>Chat Bot</span>
+                                <button class="close-btn" onclick="toggleChatbox()">×</button>
+                            </div>
+                            <div class="chatbox-body">
+                                <!-- 채팅 메시지들이 여기에 표시됩니다 -->
+                                <div class="message bot">
+                                    안녕하세요! 무엇을 도와드릴까요?
+                                </div>
+                            </div>
+                            <div class="chatbox-footer">
+                                <input type="text" placeholder="메시지를 입력하세요...">
+                                <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const chatbox = document.getElementById('chatbox');
+    const chatBody = chatbox.querySelector('.chatbox-body');
+    const input = chatbox.querySelector('input');
+    const sendBtn = chatbox.querySelector('.send-btn');
+
+    // 챗박스 토글 함수
+    window.toggleChatbox = function() {
+        chatbox.classList.toggle('active');
+    }
+
+    // 메시지 추가 함수
+    function addMessage(message, isBot = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isBot ? 'bot' : 'user'}`;
+        messageDiv.textContent = message;
+        chatBody.appendChild(messageDiv);
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    // 메시지 전송 함수
+    async function sendMessage() {
+        const message = input.value.trim();
+        if (!message) return;
+
+        // 사용자 메시지 표시
+        addMessage(message, false);
+        input.value = '';
+
+        // 로딩 메시지 표시
+        const loadingDiv = document.createElement('div');
+        loadingDiv.className = 'message bot';
+        loadingDiv.textContent = '답변을 생성중입니다...';
+        chatBody.appendChild(loadingDiv);
+
+        try {
+            // API 호출
+            const response = await fetch('/api/chat/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message })
+            });
+
+            const data = await response.json();
+            
+            // 로딩 메시지 제거
+            chatBody.removeChild(loadingDiv);
+            
+            // 봇 응답 표시
+            addMessage(data.response, true);
+        } catch (error) {
+            // 로딩 메시지 제거
+            chatBody.removeChild(loadingDiv);
+            
+            // 에러 메시지 표시
+            addMessage('죄송합니다. 오류가 발생했습니다.', true);
+        }
+    }
+
+    // 이벤트 리스너 등록
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+});
+</script>
+</body>
+</html>

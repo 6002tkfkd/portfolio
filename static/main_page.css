@@ -1,0 +1,447 @@
+@import "./reset.css";
+@import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Do+Hyeon&family=East+Sea+Dokdo&family=Smooch+Sans:wght@100..900&display=swap');
+
+html {
+    margin: 0;
+    padding: 0;
+    height: 700vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Do Hyeon", serif;
+    overflow-x: hidden;
+}
+
+.list
+{
+    display: flex;
+    width: 100vw;
+    height: 70px;
+    justify-content: space-evenly;
+    font-size: 25px;
+    align-items: center;
+    background-color: gray;
+}
+
+a
+{
+    color: black;
+}
+
+nav
+{
+    position: relative;
+    position:fixed;
+    z-index: 1000;
+}
+
+#HOME
+{
+    width: 100vw;
+}
+
+.about_me_section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+#about_me_print {
+    position: relative;
+    font-size: 100px;
+    font-weight: bold;
+    left: 60px;
+    top: 60px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.about_me_content_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.image_container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.text_container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#about_me_content {
+    font-size: 30px;
+    line-height: 40px;
+    padding-left: 50px;
+}
+
+#ABOUT_ME {
+    scroll-margin-top: 150px;
+}
+
+.skills_section 
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+#skills_print
+{
+    position: relative;
+    font-size: 100px;
+    font-weight: bold;
+    left: 60px;
+    top: 60px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.experienced_it_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+#skills_content {
+    font-size: 80px;
+    opacity: 0.5;
+}
+
+#SKILLS {
+    scroll-margin-top: 20px;
+}
+
+.content_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.icon_container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    font-size: 80px;
+}
+
+.python-icon, .langchain-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.python-icon {
+    color: #306998;
+}
+
+.langchain-icon {
+    color: #00A000;
+}
+
+.python-icon span, .langchain-icon span {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.project_section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+#project_print {
+    position: relative;
+    font-size: 100px;
+    font-weight: bold;
+    left: 60px;
+    top: 60px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+#PROJECT {
+    scroll-margin-top: 20px;
+}
+
+.project_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+#project_content {
+    font-size: 80px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.project_items {
+    margin-top: 50px
+}
+
+.contact_section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+#contact_print {
+    position: relative;
+    font-size: 100px;
+    font-weight: bold;
+    left: 60px;
+    top: 60px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+#CONTACT {
+    scroll-margin-top: 20px;
+}
+
+.contact_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+#contact_content {
+    font-size: 80px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.contact_items {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.contact_item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 24px;
+}
+
+.contact_item i {
+    font-size: 30px;
+    color: #333;
+    opacity: 0.7;
+}
+
+.contact_item.github a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact_item.github:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.chatbot_section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    margin-left: 50px;
+}
+
+#chatbot_print {
+    position: relative;
+    font-size: 100px;
+    font-weight: bold;
+    left: 60px;
+    top: 60px;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+#CHAT_BOT {
+    scroll-margin-top: 20px;
+}
+
+.chatbot_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+
+#chatbot_content {
+    font-size: 100px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+.chatbot_items {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.chatbot_icon {
+    font-size: 150px;
+    color: #4285f4;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 8px rgba(66, 133, 244, 0.3);
+}
+
+.chatbot_icon:hover {
+    transform: scale(1.1);
+    color: #1a73e8;
+    text-shadow: 4px 4px 12px rgba(66, 133, 244, 0.4);
+}
+
+.chatbox {
+    display: none;
+    position: absolute;
+    left: 200px;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.chatbox.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.chatbox-header {
+    padding: 15px;
+    background: #4285f4;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chatbox-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message {
+    margin: 12px 0;
+    padding: 12px;
+    border-radius: 12px;
+    max-width: 85%;
+    font-size: 16px;
+}
+
+.message.bot {
+    background: #f1f3f4;
+    align-self: flex-start;
+}
+
+.message.user {
+    background: #4285f4;
+    color: white;
+    align-self: flex-end;
+}
+
+.chatbox-footer {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
+    border-top: 1px solid #eee;
+}
+
+.chatbox-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+}
+
+.send-btn {
+    background: #4285f4;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.message.user {
+    background: #e3f2fd;
+    margin-left: auto;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+
+.message.bot {
+    background: #f5f5f5;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+
+.chatbox-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #eee;
+}
+
+.chatbox-footer input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.chatbox-footer .send-btn {
+    background: #4285f4;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chatbox-footer .send-btn:hover {
+    background: #1a73e8;
+}
