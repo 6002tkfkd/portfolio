@@ -141,20 +141,3 @@ class ChatbotManager:
 
 # 전역 인스턴스 생성
 chatbot = ChatbotManager()
-
-# while True:
-#     query = input("\n질문을 입력하세요 (종료하려면 'q' 입력): ")
-    
-#     if query.lower() == 'q':
-#         print("프로그램을 종료합니다.")
-#         break
-    
-#     if not query.strip():
-#         print("질문을 입력해주세요.")
-#         continue
-    
-#     try:
-#         response = chain.invoke(query)
-#         print("\n답변:", response)
-#     except Exception as e:
-#         print(f"오류가 발생했습니다: {str(e)}")
