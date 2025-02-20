@@ -99,7 +99,7 @@ class ChatbotManager:
             # 프롬프트 템플릿 설정
             self.prompt = PromptTemplate.from_template(
                 """당신은 한국어로 대답하는 AI 챗봇입니다.
-                다음 내용을 바탕으로 자연스러운 한국어로만 답변해주세요.
+                다음 내용을 바탕으로 짧고 간결하고 자연스러운 한국어로만 답변해주세요.
 
                 참고 내용: {context}
 
